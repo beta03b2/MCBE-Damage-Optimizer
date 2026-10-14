@@ -55,8 +55,9 @@ const i18n = {
         errorLabel: "Error"
     }
 };
+const urlParams = new URLSearchParams(window.location.search);
 
-const lang = navigator.language.startsWith('en') ? 'ja' : 'en';
+const lang = urlParams.get('lang') ?? navigator.language.startsWith('en') ? 'ja' : 'en';
 const t = i18n[lang];
 
 function applyLanguage() {
